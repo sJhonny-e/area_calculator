@@ -2,15 +2,19 @@ require 'set'
 
 def valid_area(start_point)
     result_set = Set.new
-    do_valid_area(start_point, result_set)
+    stack = [start_point]
+    do_valid_area(result_set, stack)
     result_set.size
 end
 
-def do_valid_area(point, result_set)
-    result_set << point
-    puts "adding point #{point}, with sum of digits #{sum_digits(point)}"
-    adjescent_points(point).reject { |new_point| !valid?(new_point) || result_set.include?(new_point) }
-        .each { |valid_point| do_valid_area(valid_point, result_set)}
+def do_valid_area(result_set, stack)
+    while !stack.empty? do
+        point = stack.pop
+        result_set << point
+        puts "adding point #{point}, with sum of digits #{sum_digits(point)}"
+        adjescent_points(point).reject { |new_point| !valid?(new_point) || result_set.include?(new_point) }
+            .each { |valid_point| stack << valid_point}
+    end
 end
 
 def adjescent_points(num_pair)
