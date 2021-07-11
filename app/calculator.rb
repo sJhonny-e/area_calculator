@@ -8,11 +8,9 @@ end
 
 def do_valid_area(point, result_set)
     result_set << point
-    adjescent_points(point).each do |new_point|
-        next if !valid?(new_point) || result_set.include?(new_point)
-        puts "adding point #{new_point}, with sum of digits #{sum_digits(new_point)}"
-        do_valid_area(new_point, result_set) 
-    end
+    puts "adding point #{point}, with sum of digits #{sum_digits(point)}"
+    adjescent_points(point).reject { |new_point| !valid?(new_point) || result_set.include?(new_point) }
+        .each { |valid_point| do_valid_area(valid_point, result_set)}
 end
 
 def adjescent_points(num_pair)
