@@ -32,7 +32,7 @@ class Point
             num = num.abs
             result = []
             while num > 0 do
-                result << (num % 10 || num)
+                result << num % 10
                 num = num / 10
             end
             result
