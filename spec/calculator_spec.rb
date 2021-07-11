@@ -29,7 +29,7 @@ end
 
 describe 'calcualtion of valid area' do
     it 'calculates area for point (0,0)' do
-        verifying_callback = ->(x) { raise "gotcha! #{x}" unless sum_digits(x) < 23 }
+        verifying_callback = ->(x) { raise "gotcha! #{x}" unless x.send(:sum_digits, [x.x, x.y]) < 23 }
         expect(valid_area(Point.new(0,0), verifying_callback)).to eq(424129)
     end
 end

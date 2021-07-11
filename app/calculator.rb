@@ -8,7 +8,7 @@ def valid_area(start_point, valid_point_callback = ->(point) {  })
         point = stack.pop
         result_set << point
         point.adjecencies.reject { |new_point| !new_point.valid? || result_set.include?(new_point) }
-            .each { |valid_point| stack << valid_point ; valid_point_callback.call(valid_point.to_arr)}
+            .each { |valid_point| stack << valid_point ; valid_point_callback.call(valid_point)}
     end
 
     result_set.size
