@@ -20,3 +20,9 @@ describe 'figuring out if a point is "valid"' do
         expect(valid?([-51, -7])).to be true
     end
 end
+
+describe 'calculating adjecent points' do
+    it 'calculates adjecencies for (0,0)' do
+        expect(adjescent_points([0,0])).to match_array([[0,1], [0,-1], [1,0], [-1,0]])
+    end
+end

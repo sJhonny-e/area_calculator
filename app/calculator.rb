@@ -1,3 +1,9 @@
+def adjescent_points(num_pair)
+    [-1,1].flat_map do |change|
+        [[num_pair[0] + change, num_pair[1]], [num_pair[0], num_pair[1] + change]]
+    end
+end
+
 def valid?(num_arr)
     sum_digits(num_arr) < 23
 end
