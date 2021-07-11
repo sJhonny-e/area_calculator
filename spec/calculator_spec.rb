@@ -34,6 +34,6 @@ end
 
 describe 'calcualtion of valid area' do
     it 'calculates area for point (0,0)' do
-        expect(valid_area([0,0])).to eq(0)
+        expect(valid_area([0,0])).to eq(424129)
     end
 end
