@@ -17,7 +17,7 @@ class Point
     end
 
     def valid?
-        sum_digits(to_arr) < 23
+        sum_digits < 23
     end
 
     def eql?(other)
@@ -30,8 +30,8 @@ class Point
 
     private
 
-    def sum_digits(num_arr)
-        num_arr.flat_map do |num|
+    def sum_digits
+        [x,y].flat_map do |num|
             num = num.abs
             result = []
             while num > 0 do
