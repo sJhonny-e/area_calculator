@@ -1,5 +1,6 @@
 def sum_digits(num_arr)
     num_arr.flat_map do |num|
+        num = num.abs
         divide_by = 10
         result = []
         while num > 0 do
