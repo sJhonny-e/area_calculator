@@ -16,6 +16,7 @@ class Point
         sum_digits < MAGIC_NUMBER
     end
 
+    # methods required for comparing instances, for purposes of storing in a Set
     def eql?(other)
         x == other.x && y == other.y
     end
