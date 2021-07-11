@@ -2,7 +2,7 @@ require 'set'
 
 def valid_area(start_point, valid_point_callback = ->(point) {  })
     result_set = Set.new
-    stack = [start_point]
+    stack = [start_point.to_arr]
     
     while !stack.empty? do
         point = stack.pop

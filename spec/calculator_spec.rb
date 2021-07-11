@@ -1,5 +1,6 @@
 require 'rspec'
 require_relative '../app/calculator.rb'
+require_relative '../app/point.rb'
 
 describe 'calculating sum of digits' do
     it 'calculates for 59, 75' do
@@ -35,6 +36,6 @@ end
 describe 'calcualtion of valid area' do
     it 'calculates area for point (0,0)' do
         verifying_callback = ->(x) { raise "gotcha! #{x}" unless sum_digits(x) < 23 }
-        expect(valid_area([0,0], verifying_callback)).to eq(424129)
+        expect(valid_area(Point.new(0,0), verifying_callback)).to eq(424129)
     end
 end
