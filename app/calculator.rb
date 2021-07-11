@@ -7,7 +7,7 @@ def valid_area(start_point, valid_point_callback = ->(point) {  })
     while !stack.empty? do
         point = stack.pop
         result_set << point
-        point.adjecencies.reject { |new_point| !valid?(new_point.to_arr) || result_set.include?(new_point) }
+        point.adjecencies.reject { |new_point| !valid?(new_point) || result_set.include?(new_point) }
             .each { |valid_point| stack << valid_point ; valid_point_callback.call(valid_point.to_arr)}
     end
 
@@ -15,7 +15,7 @@ def valid_area(start_point, valid_point_callback = ->(point) {  })
 end
 
 def valid?(num_arr)
-    sum_digits(num_arr) < 23
+    sum_digits(num_arr.to_arr) < 23
 end
 
 def sum_digits(num_arr)
