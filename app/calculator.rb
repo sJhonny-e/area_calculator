@@ -1,3 +1,20 @@
+require 'set'
+
+def valid_area(start_point)
+    result_set = Set.new
+    do_valid_area(start_point, result_set)
+    result_set.size
+end
+
+def do_valid_area(point, result_set)
+    result_set << point
+    adjescent_points(point).each do |point|
+        next if !valid?(point) || result_set.include?(point)
+        puts "adding point #{point}, with sum of digits #{sum_digits(point)}"
+        do_valid_area(point, result_set) 
+    end
+end
+
 def adjescent_points(num_pair)
     [-1,1].flat_map do |change|
         [[num_pair[0] + change, num_pair[1]], [num_pair[0], num_pair[1] + change]]

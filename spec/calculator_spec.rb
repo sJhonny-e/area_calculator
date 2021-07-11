@@ -31,3 +31,9 @@ describe 'calculating adjecent points' do
         expect(adjescent_points([0,0])).to match_array([[0,1], [0,-1], [1,0], [-1,0]])
     end
 end
+
+describe 'calcualtion of valid area' do
+    it 'calculates area for point (0,0)' do
+        expect(valid_area([0,0])).to eq(0)
+    end
+end
