@@ -27,12 +27,6 @@ describe 'figuring out if a point is "valid"' do
     end
 end
 
-describe 'calculating adjecent points' do
-    it 'calculates adjecencies for (0,0)' do
-        expect(adjescent_points(Point.new(0,0))).to match_array([[0,1], [0,-1], [1,0], [-1,0]])
-    end
-end
-
 describe 'calcualtion of valid area' do
     it 'calculates area for point (0,0)' do
         verifying_callback = ->(x) { raise "gotcha! #{x}" unless sum_digits(x) < 23 }
