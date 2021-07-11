@@ -6,11 +6,6 @@ class Point
         @x = x; @y = y    
     end
 
-  # TODO: delete when refactoring is done
-  def to_arr
-    [x,y]
-end
-
     def adjecencies
         [-1,1].flat_map do |change|
             [Point.new(x + change, y), Point.new(x, y + change)]
