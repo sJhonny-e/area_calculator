@@ -8,10 +8,10 @@ end
 
 def do_valid_area(point, result_set)
     result_set << point
-    adjescent_points(point).each do |point|
-        next if !valid?(point) || result_set.include?(point)
-        puts "adding point #{point}, with sum of digits #{sum_digits(point)}"
-        do_valid_area(point, result_set) 
+    adjescent_points(point).each do |new_point|
+        next if !valid?(new_point) || result_set.include?(new_point)
+        puts "adding point #{new_point}, with sum of digits #{sum_digits(new_point)}"
+        do_valid_area(new_point, result_set) 
     end
 end
 
