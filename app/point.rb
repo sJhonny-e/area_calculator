@@ -9,4 +9,12 @@ class Point
     def to_arr
         [x,y]
     end
+
+    def eql?(other)
+        x == other.x && y == other.y
+    end
+
+    def hash
+        [x,y].hash
+    end
 end
