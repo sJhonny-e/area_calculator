@@ -19,11 +19,11 @@ end
 
 describe 'figuring out if a point is "valid"' do
     it '(59, 75) is invalid' do
-        expect(valid?(Point.new(59, 75))).to be false
+        expect(Point.new(59, 75).valid?).to be false
     end
 
     it '(-51, -7) is valid' do
-        expect(valid?(Point.new(-51, -7))).to be true
+        expect(Point.new(-51, -7).valid?).to be true
     end
 end
 
