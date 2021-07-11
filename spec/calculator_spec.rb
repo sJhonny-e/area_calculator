@@ -9,6 +9,11 @@ describe 'calculating sum of digits' do
     it 'calculates for -51, -7' do
         expect(sum_digits([-51, -7])).to eq(13)
     end
+
+    it 'calculates for -147, 1' do
+        expect(sum_digits([-147, 1])).to eq(13)
+    end
+    
 end
 
 describe 'figuring out if a point is "valid"' do
