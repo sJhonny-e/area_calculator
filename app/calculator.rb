@@ -7,17 +7,15 @@ def valid_area(start_point, valid_point_callback = ->(point) {  })
     while !stack.empty? do
         point = stack.pop
         result_set << point
-        adjescent_points(point.to_arr).reject { |new_point| !valid?(new_point) || result_set.include?(Point.new(*new_point)) }
+        adjescent_points(point).reject { |new_point| !valid?(new_point) || result_set.include?(Point.new(*new_point)) }
             .each { |valid_point| stack << Point.new(*valid_point) ; valid_point_callback.call(valid_point)}
     end
 
     result_set.size
 end
 
-def adjescent_points(num_pair)
-    [-1,1].flat_map do |change|
-        [[num_pair[0] + change, num_pair[1]], [num_pair[0], num_pair[1] + change]]
-    end
+def adjescent_points(point)
+    point.adjecencies.map(&:to_arr)
 end
 
 def valid?(num_arr)

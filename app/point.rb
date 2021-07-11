@@ -10,6 +10,12 @@ class Point
         [x,y]
     end
 
+    def adjecencies
+        [-1,1].flat_map do |change|
+            [Point.new(x + change, y), Point.new(x, y + change)]
+        end
+    end
+
     def eql?(other)
         x == other.x && y == other.y
     end

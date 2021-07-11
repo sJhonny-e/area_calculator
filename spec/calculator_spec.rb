@@ -29,7 +29,7 @@ end
 
 describe 'calculating adjecent points' do
     it 'calculates adjecencies for (0,0)' do
-        expect(adjescent_points([0,0])).to match_array([[0,1], [0,-1], [1,0], [-1,0]])
+        expect(adjescent_points(Point.new(0,0))).to match_array([[0,1], [0,-1], [1,0], [-1,0]])
     end
 end
 
